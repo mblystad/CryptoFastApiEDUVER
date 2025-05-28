@@ -20,8 +20,13 @@ An educational FastAPI project for exploring cryptocurrency metadata, 7-day tren
 
 ## 🧪 Screenshots
 
-<img src="https://github.com/mblystad/CryptoFastApiEDUVER/blob/master/app/static/logo.png" width="400" alt="Dashboard preview">
+Webpage:
 
+<img src="https://github.com/mblystad/CryptoFastApiEDUVER/blob/master/htmlscgrab.png" width="600" alt="Html preview">
+
+Logo:
+
+<img src="https://github.com/mblystad/CryptoFastApiEDUVER/blob/master/app/static/logo.png" width="100" alt="logo">
 ---
 
 ## 📦 Getting Started
