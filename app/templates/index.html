@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Crypto Metadata Dashboard</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: #111;
+            color: #eee;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            text-align: center;
+            background: #222;
+            padding: 20px;
+        }
+        header img {
+            height: 60px;
+        }
+        h1 {
+            margin: 0;
+        }
+        #loading {
+            display: none;
+            text-align: center;
+            padding: 40px;
+            font-size: 18px;
+        }
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            padding: 20px;
+            justify-content: center;
+            gap: 20px;
+        }
+        .card {
+            background: #1e1e1e;
+            border-radius: 12px;
+            padding: 20px;
+            width: 300px;
+            box-shadow: 0 0 10px #000;
+        }
+        .card h2 {
+            margin: 0;
+            font-size: 1.3em;
+            color: #00ffc3;
+        }
+        .card a {
+            color: #66ccff;
+            text-decoration: none;
+        }
+        .card p {
+            font-size: 0.95em;
+            margin: 6px 0;
+        }
+        button {
+            display: block;
+            margin: 30px auto 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            background: #00ffc3;
+            color: #000;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <img src="/static/logo.png" alt="Logo">
+    <h1>Crypto Insight Dashboard</h1>
+</header>
+
+<div id="loading">🔄 Gathering the latest intel from the blockchain mines...</div>
+
+<div class="container" id="crypto-cards">
+    {% for coin in coins %}
+    <div class="card">
+        <h2>{{ coin.crypto_name }} ({{ coin.crypto_symbol }})</h2>
+        <p><strong>Rank:</strong> {{ coin.market_cap_rank or "?" }}</p>
+        <p><strong>Circulating Supply:</strong> {{ coin.circulating_supply or "?" }}</p>
+        <p><strong>Max Supply:</strong> {{ coin.max_supply or "?" }}</p>
+        <p><strong>Exchange:</strong> {{ coin.listed_exchange or "?" }}</p>
+        <p><strong>Trend:</strong> {{ coin.trend_info or "N/A" }}</p>
+        <p><a href="{{ coin.recent_headline }}" target="_blank">📎 Recent News</a></p>
+        <p>{{ coin.notes or "" }}</p>
+    </div>
+    {% endfor %}
+</div>
+
+<button onclick="refreshData()">🔄 Refresh Data</button>
+
+<script>
+    function refreshData() {
+        document.getElementById("loading").style.display = "block";
+        fetch("/refresh", { method: "POST" })
+            .then(() => window.location.reload())
+            .catch(() => alert("❌ Failed to refresh"));
+    }
+</script>
+</body>
+</html>
