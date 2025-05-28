@@ -1,6 +1,7 @@
 # 🧠 Crypto Insight Dashboard
 
 An educational FastAPI project for exploring cryptocurrency metadata, 7-day trends, and recent news headlines — presented through a sleek HTML dashboard and powered by real-time data.
+This API is built upon a reply shared in a whatsapp group by a GreatLearning lecturer, credit is thus given. 
 
 > ⚠️ This project is **not intended for speculation, trading, or financial advice**. It was built for learning purposes, using public APIs and open data, with help from AI.
 
