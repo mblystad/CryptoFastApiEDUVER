@@ -143,6 +143,3 @@ If you’re a student or educator and want to build on this, fork it and make it
 ```
 
 ---
-
-Let me know if you want me to generate a `requirements.txt`, a `LICENSE`, or a PDF version of this `README`.
-```
